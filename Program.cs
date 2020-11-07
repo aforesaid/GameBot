@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using GameBot.BotVoid;
 using GameBot.ConfigModel;
+using GameBot.GameModel;
 using Newtonsoft.Json;
 using Telegram.Bot;
 using Telegram.Bot.Args;
@@ -11,18 +12,19 @@ namespace GameBot
 {
     internal class Program
     {
+        private static readonly string tokenPath = Path.Combine(Directory.GetCurrentDirectory(), "token.json");
         /// <summary>
         ///     Объект, через который выполняются все запросы (экземпляр бота)
         /// </summary>
-        public static TelegramBotClient Bot { get; set; }
+        public static TelegramBotClient Bot { get; private set; }
 
         private static void Main()
         {
             Initialization();
             var me = Bot.GetMeAsync().Result.FirstName;
             Console.WriteLine(me);
-            Bot.OnMessage       += new Program().ReadMessage;
-            Bot.OnCallbackQuery += new Program().ReadButton;
+            Bot.OnMessage       += ReadMessage;
+            Bot.OnCallbackQuery += ReadButton;
             Bot.StartReceiving();
             Console.ReadKey();
             Bot.StopReceiving();
@@ -33,7 +35,7 @@ namespace GameBot
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e">Информация по запросу пользователя</param>
-        private void ReadButton(object sender, CallbackQueryEventArgs e)
+        private static void ReadButton(object sender, CallbackQueryEventArgs e)
         {
             try
             {
@@ -43,11 +45,11 @@ namespace GameBot
                 var isConf = @event.From.Id != @event.Message.Chat.Id;
 
                 if (isConf) new ConfVoid().PerformEvent(@event);
-                else new PersonalVoid().PerfomEvent(@event);
+                else new PersonalVoid().PerformEvent(@event);
             }
             catch
             {
-                Console.WriteLine("TO DO : fix (Program line 26) try ");
+                Console.WriteLine("fix (Program line 26) try ");
             }
         }
 
@@ -56,7 +58,7 @@ namespace GameBot
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e">Информация по сообщению пользователя</param>
-        private void ReadMessage(object sender, MessageEventArgs e)
+        private static void ReadMessage(object sender, MessageEventArgs e)
         {
             var message = e.Message;
             Console.WriteLine($"{message.From.Username} {message.From.FirstName} {message.Text}");
@@ -77,14 +79,10 @@ namespace GameBot
                 PersonalVoid.TurnWaitPlayer[i] = new List<ObjectGame>();
             //
 
-            var json                = File.ReadAllText(@"token.json");
-            var botInfo = JsonConvert.DeserializeObject<BotInfo>(json);
+            var token                = File.ReadAllText(tokenPath);
+            var botInfo = JsonConvert.DeserializeObject<BotInfo>(token);
             Bot = new TelegramBotClient(botInfo.Token);
         }
 
-        private class BotInfo
-        {
-             public  string Token = null;
-        }
     }
 }

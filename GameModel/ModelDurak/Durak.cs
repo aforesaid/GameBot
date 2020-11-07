@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GameBot.ConfigModel;
+using GameBot.GameModel.ModelDurak;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
 using User = GameBot.ConfigModel.User;
 
 namespace GameBot.GameModel
 {
-    internal partial class Durak : GameWithOtherPlayer
+    internal  class Durak : GameWithOtherPlayer
     {
         public static int NumberGame { get; set; } = 3;
 
@@ -599,7 +600,7 @@ namespace GameBot.GameModel
 
             try
             {
-                if (await new GameBotOnline().CheckInTurnGamePersonal(message.Chat.Id.ToString(),
+                if (await new GameBotOnline().CreateNewGame(message.Chat.Id.ToString(),
                                                                       message.From.FirstName, CrossZero.Answers,
                                                                       NumberGame, int.Parse(message.Text.Split(' ')[1]))
                 )
@@ -686,77 +687,6 @@ namespace GameBot.GameModel
             }
 
             return member;
-        }
-    }
-
-    internal partial class Durak
-    {
-        /// <summary>
-        ///     Детали активной игры Дурак
-        /// </summary>
-        private class GameInfo
-        {
-            public GameInfo(int count)
-            {
-                CountUser = count;
-            }
-
-            /// <summary>
-            ///     Список карт, которые лежат в колоде
-            /// </summary>
-            public List<string> Deck { get; set; }
-
-            /// <summary>
-            ///     Количество активных игроков
-            /// </summary>
-            public int CountUser { get; set; }
-
-            /// <summary>
-            ///     Список карт , которые лежат сейчас на столе
-            /// </summary>
-            public List<string> Now { get; set; }
-
-            /// <summary>
-            ///     Номер игрока, который будет ходить следующим
-            /// </summary>
-            public int NumUserSelect { get; set; }
-
-            /// <summary>
-            ///     Козырь в игре
-            /// </summary>
-            public char MainSuit { get; set; }
-
-            /// <summary>
-            ///     Состояние в игре :
-            ///     0 - ход, 1 - отбиваются, 2 - подкидывают
-            /// </summary>
-            public int Stage { get; set; }
-
-            /// <summary>
-            ///     Игрок берёт карты, которые на столе
-            /// </summary>
-            public bool Take { get; set; }
-
-            /// <summary>
-            ///     Количество игроков, у которых <see cref="UserInfo.Pass" /> = true
-            /// </summary>
-            public int StagePass { get; set; }
-        }
-
-        /// <summary>
-        ///     Детали пользователя в игре Дурак
-        /// </summary>
-        private class UserInfo
-        {
-            /// <summary>
-            ///     Список карт игрока
-            /// </summary>
-            public List<string> Card { get; set; }
-
-            /// <summary>
-            ///     Состояние игрока, если "пасанул" - true
-            /// </summary>
-            public bool Pass { get; set; }
         }
     }
 }

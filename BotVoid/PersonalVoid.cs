@@ -10,7 +10,7 @@ namespace GameBot.BotVoid
     /// <summary>
     ///     Реализация функций бота в личных сообщениях
     /// </summary>
-    internal class PersonalVoid
+    internal class PersonalVoid:IDefaultVoid
     {
         public delegate Task VoidGame(Message mes, ObjectGame ask);
 
@@ -104,7 +104,7 @@ namespace GameBot.BotVoid
         ///     Обработка CallbackQuery запросов пользователей
         /// </summary>
         /// <param name="event">CallbackQuery пользователя</param>
-        public void PerfomEvent(CallbackQuery @event)
+        public void PerformEvent(CallbackQuery @event)
         {
             switch (@event.Data)
             {

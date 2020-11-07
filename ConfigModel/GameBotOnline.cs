@@ -60,7 +60,7 @@ namespace GameBot.ConfigModel
         /// <param name="numberGame">Номер игры</param>
         /// <param name="countUser">Количество игроков необходимое для начала игры</param>
         /// <returns>True, если набирается нужное количество игроков и игра переводится в активные</returns>
-        public async Task<bool> CheckInTurnGamePersonal(string userId, string name, string[] answer, int numberGame,
+        public async Task<bool> CreateNewGame(string userId, string name, string[] answer, int numberGame,
             int countUser)
         {
             var player = countUser < 0 ? CountPlayer[numberGame] : countUser;

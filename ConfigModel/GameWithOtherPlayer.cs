@@ -6,9 +6,9 @@ namespace GameBot.ConfigModel
     /// <summary>
     ///     Каркас модели для игр, которые проводятся с другими пользователями
     /// </summary>
-    internal class GameWithOtherPlayer
+    internal abstract class GameWithOtherPlayer
     {
-        public static int CountGame { get; set; } = 4;
+        public const int CountGame = 4;
 
         /// <summary>
         ///     Выход из игры досрочно
@@ -52,9 +52,8 @@ namespace GameBot.ConfigModel
         /// <param name="countUser">Количество игроков в игре</param>
         /// <returns></returns>
         public virtual async Task<bool> NewSession(string userId, string name, string[] answers, int numberGame,
-            int numberInTurn, int countUser)
-        {
-            return await new GameBotOnline().CheckInTurnGamePersonal(userId, name, answers, numberGame, countUser);
-        }
+            int numberInTurn, int countUser) =>
+            await new GameBotOnline().CreateNewGame(userId, name, answers, numberGame, countUser);
+        
     }
 }

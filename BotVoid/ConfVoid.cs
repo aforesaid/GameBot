@@ -2,7 +2,7 @@
 
 namespace GameBot.BotVoid
 {
-    internal class ConfVoid
+    internal class ConfVoid:IDefaultVoid
     {
         /// <summary>
         ///     Метод, реализующий логику обработки сообщений в группе/чате .
