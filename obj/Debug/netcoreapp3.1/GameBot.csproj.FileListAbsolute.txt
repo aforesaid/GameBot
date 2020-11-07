@@ -1,0 +1,16 @@
+D:\project\Telegram Bot_Net Core\bin\Debug\netcoreapp3.1\TelegramBotGame.exe
+D:\project\Telegram Bot_Net Core\bin\Debug\netcoreapp3.1\TelegramBotGame.deps.json
+D:\project\Telegram Bot_Net Core\bin\Debug\netcoreapp3.1\TelegramBotGame.runtimeconfig.json
+D:\project\Telegram Bot_Net Core\bin\Debug\netcoreapp3.1\TelegramBotGame.runtimeconfig.dev.json
+D:\project\Telegram Bot_Net Core\bin\Debug\netcoreapp3.1\TelegramBotGame.dll
+D:\project\Telegram Bot_Net Core\bin\Debug\netcoreapp3.1\TelegramBotGame.pdb
+D:\project\Telegram Bot_Net Core\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\project\Telegram Bot_Net Core\bin\Debug\netcoreapp3.1\Telegram.Bot.dll
+D:\project\Telegram Bot_Net Core\obj\Debug\netcoreapp3.1\GameBot.csprojAssemblyReference.cache
+D:\project\Telegram Bot_Net Core\obj\Debug\netcoreapp3.1\GameBot.AssemblyInfoInputs.cache
+D:\project\Telegram Bot_Net Core\obj\Debug\netcoreapp3.1\GameBot.AssemblyInfo.cs
+D:\project\Telegram Bot_Net Core\obj\Debug\netcoreapp3.1\GameBot.csproj.CoreCompileInputs.cache
+D:\project\Telegram Bot_Net Core\obj\Debug\netcoreapp3.1\GameBot.csproj.CopyComplete
+D:\project\Telegram Bot_Net Core\obj\Debug\netcoreapp3.1\TelegramBotGame.dll
+D:\project\Telegram Bot_Net Core\obj\Debug\netcoreapp3.1\TelegramBotGame.pdb
+D:\project\Telegram Bot_Net Core\obj\Debug\netcoreapp3.1\GameBot.genruntimeconfig.cache
