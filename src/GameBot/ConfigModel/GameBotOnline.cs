@@ -6,7 +6,7 @@ using Telegram.Bot.Types;
 
 namespace GameBot.ConfigModel
 {
-    internal class GameBotOnline
+    public class GameBotOnline
     {
         public delegate void QuitD(Message mes, ObjectGame objectGame);
 
@@ -18,7 +18,7 @@ namespace GameBot.ConfigModel
         /// <summary>
         ///     Стандартное количество игроков для каждой игры
         /// </summary>
-        private static readonly Dictionary<int, int> CountPlayer = new Dictionary<int, int>
+        private static readonly Dictionary<int, int> CountPlayer = new()
         {
             [0] = 2,
             [1] = 1,
@@ -26,7 +26,7 @@ namespace GameBot.ConfigModel
             [3] = 2
         };
 
-        public static QuitD[] Quits { get; set; } =
+        public static QuitD[] Quits { get; } =
         {
             new Anonymchat().Quit,
             new BullAndCows().Exit,

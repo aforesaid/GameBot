@@ -10,7 +10,7 @@ namespace GameBot.GameModel
     /// <summary>
     ///     Реализация игры Крестики - Нолики
     /// </summary>
-    internal class CrossZero : GameWithOtherPlayer
+    public class CrossZero : GameWithOtherPlayer
     {
         /// <summary>
         ///     Информация по активным играм

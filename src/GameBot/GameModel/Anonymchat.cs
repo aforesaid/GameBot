@@ -7,7 +7,7 @@ namespace GameBot.GameModel
     /// <summary>
     ///     Реализует все функции для анонимного чата.
     /// </summary>
-    internal class Anonymchat : GameWithOtherPlayer
+    public class Anonymchat : GameWithOtherPlayer
     {
         public static int NumberGame { get; set; } = 0;
 

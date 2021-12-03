@@ -10,7 +10,7 @@ namespace GameBot.BotVoid
     /// <summary>
     ///     Реализация функций бота в личных сообщениях
     /// </summary>
-    internal class PersonalVoid:IDefaultVoid
+    public class PersonalVoid:IDefaultVoid
     {
         public delegate Task VoidGame(Message mes, ObjectGame ask);
 

@@ -9,7 +9,7 @@ using User = GameBot.ConfigModel.User;
 
 namespace GameBot.GameModel
 {
-    internal  class Durak : GameWithOtherPlayer
+    public  class Durak : GameWithOtherPlayer
     {
         public static int NumberGame { get; set; } = 3;
 

@@ -10,7 +10,7 @@ namespace GameBot.GameModel
     /// <summary>
     ///     Реализация игры Быки и Коровы
     /// </summary>
-    internal class BullAndCows
+    public class BullAndCows
     {
         /// <summary>
         ///     Метод, реализующий логику игры Быки и Коровы

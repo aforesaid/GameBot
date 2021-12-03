@@ -2,13 +2,12 @@
 
 namespace GameBot
 {
-    internal static class Keyboards
+    public static class Keyboards
     {
         /// <summary>
         ///     Шаблон клавиатуры для игры Крестики - Нолики
         /// </summary>
-        public static InlineKeyboardMarkup CrossZero = new InlineKeyboardMarkup
-            (new[]
+        public static InlineKeyboardMarkup CrossZero = new(new[]
             {
                 new[]
                 {
@@ -30,7 +29,7 @@ namespace GameBot
         /// <summary>
         ///     Клавиатура для очереди
         /// </summary>
-        public static InlineKeyboardMarkup KeyboardTurn = new InlineKeyboardMarkup(new[]
+        public static InlineKeyboardMarkup KeyboardTurn = new(new[]
         {
             InlineKeyboardButton.WithCallbackData("Покинуть очередь ❌", "Exit_turn")
         });
@@ -38,7 +37,7 @@ namespace GameBot
         /// <summary>
         ///     Стартовая клавиатура
         /// </summary>
-        public static ReplyKeyboardMarkup Keyboard { get; } = new ReplyKeyboardMarkup
+        public static ReplyKeyboardMarkup Keyboard { get; } = new()
         {
             OneTimeKeyboard = true,
             ResizeKeyboard  = true,

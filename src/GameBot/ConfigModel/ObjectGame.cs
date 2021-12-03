@@ -5,7 +5,7 @@ namespace GameBot.ConfigModel
     /// <summary>
     ///     Модель игры
     /// </summary>
-    internal class ObjectGame
+    public class ObjectGame
     {
         /// <summary>
         ///     Участники игры
@@ -36,7 +36,7 @@ namespace GameBot.ConfigModel
     /// <summary>
     ///     Модель игрока любой игры
     /// </summary>
-    internal class User
+    public class User
     {
         /// <summary>
         ///     FirstName пользователя

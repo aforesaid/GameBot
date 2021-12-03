@@ -6,7 +6,7 @@ namespace GameBot.ConfigModel
     /// <summary>
     ///     Каркас модели для игр, которые проводятся с другими пользователями
     /// </summary>
-    internal abstract class GameWithOtherPlayer
+    public abstract class GameWithOtherPlayer
     {
         public const int CountGame = 4;
 

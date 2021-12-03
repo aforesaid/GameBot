@@ -1,7 +1,6 @@
-﻿
-namespace GameBot.ConfigModel
+﻿namespace GameBot.ConfigModel
 {
-    class BotInfo
+    public class BotInfo
     {
         public string Token = null;
     }

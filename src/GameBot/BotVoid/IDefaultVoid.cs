@@ -2,10 +2,9 @@
 
 namespace GameBot.BotVoid
 {
-    interface IDefaultVoid
-    {
-        public void PerformEvent(CallbackQuery @event);
-        public void PerformMessage(Message message);
-
+    public interface IDefaultVoid
+    { 
+        void PerformEvent(CallbackQuery @event);
+        void PerformMessage(Message message);
     }
 }
