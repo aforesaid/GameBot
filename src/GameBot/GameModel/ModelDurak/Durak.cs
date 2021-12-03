@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using GameBot.ConfigModel;
-using GameBot.GameModel.ModelDurak;
 using Telegram.Bot.Types;
 using Telegram.Bot.Types.ReplyMarkups;
 using User = GameBot.ConfigModel.User;
 
-namespace GameBot.GameModel
+namespace GameBot.GameModel.ModelDurak
 {
     public  class Durak : GameWithOtherPlayer
     {

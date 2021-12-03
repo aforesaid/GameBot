@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using GameBot.BotVoid;
 using GameBot.GameModel;
+using GameBot.GameModel.ModelDurak;
 using Telegram.Bot.Types;
 
 namespace GameBot.ConfigModel
