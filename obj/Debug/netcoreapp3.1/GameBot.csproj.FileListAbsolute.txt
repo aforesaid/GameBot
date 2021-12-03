@@ -30,3 +30,5 @@ D:\project\GameBot\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 D:\project\GameBot\bin\Debug\netcoreapp3.1\Telegram.Bot.dll
 D:\project\GameBot\obj\Debug\netcoreapp3.1\GameBot.csproj.CopyComplete
 D:\project\GameBot\obj\Debug\netcoreapp3.1\GameBot.genruntimeconfig.cache
+C:\Users\fomen\RiderProjects\GameBot\obj\Debug\netcoreapp3.1\TelegramBotGame.dll
+C:\Users\fomen\RiderProjects\GameBot\obj\Debug\netcoreapp3.1\TelegramBotGame.pdb
