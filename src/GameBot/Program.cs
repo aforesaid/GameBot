@@ -21,7 +21,7 @@ namespace GameBot
                 .Build();
             
             Initialization(configuration);
-            
+                    
             var me = Bot.GetMeAsync().Result.FirstName;
             Console.WriteLine(me);
             Bot.OnMessage       += ReadMessage;
@@ -78,11 +78,9 @@ namespace GameBot
                 GameBotOnline.Turn[i] = new List<ObjectGame>();
             for (var i = 0; i < PersonalVoid.TurnWaitPlayer.Length; i++)
                 PersonalVoid.TurnWaitPlayer[i] = new List<ObjectGame>();
-            //
 
             var token = configuration["TelegramToken"];
-            var botInfo = JsonConvert.DeserializeObject<BotInfo>(token);
-            Bot = new TelegramBotClient(botInfo.Token);
+            Bot = new TelegramBotClient(token);
         }
 
     }
