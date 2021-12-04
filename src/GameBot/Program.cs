@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using GameBot.BotVoid;
 using GameBot.ConfigModel;
+using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using Telegram.Bot;
 using Telegram.Bot.Args;
@@ -11,15 +11,17 @@ namespace GameBot
 {
     public class Program
     {
-        private static readonly string TokenPath = Path.Combine(Directory.GetCurrentDirectory(), "token.json");
-        /// <summary>
-        ///     Объект, через который выполняются все запросы (экземпляр бота)
-        /// </summary>
         public static TelegramBotClient Bot { get; private set; }
 
         private static void Main()
         {
-            Initialization();
+            var configuration = new ConfigurationBuilder()
+                .AddEnvironmentVariables()
+                .AddUserSecrets<Program>()
+                .Build();
+            
+            Initialization(configuration);
+            
             var me = Bot.GetMeAsync().Result.FirstName;
             Console.WriteLine(me);
             Bot.OnMessage       += ReadMessage;
@@ -70,7 +72,7 @@ namespace GameBot
         /// <summary>
         ///     Инициализация объектов программы
         /// </summary>
-        private static void Initialization()
+        private static void Initialization(IConfiguration configuration)
         {
             for (var i = 0; i < GameBotOnline.Turn.Length; i++)
                 GameBotOnline.Turn[i] = new List<ObjectGame>();
@@ -78,7 +80,7 @@ namespace GameBot
                 PersonalVoid.TurnWaitPlayer[i] = new List<ObjectGame>();
             //
 
-            var token                = File.ReadAllText(TokenPath);
+            var token = configuration["TelegramToken"];
             var botInfo = JsonConvert.DeserializeObject<BotInfo>(token);
             Bot = new TelegramBotClient(botInfo.Token);
         }
